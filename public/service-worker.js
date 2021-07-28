@@ -3,14 +3,14 @@ const DATA_CACHE_NAME = "data-cache-v1";
 
 const FILES_TO_CACHE = [
   '/',
-  '/index.html',
-  '/favicon.ico',
+  '/index.js',
+  // '/favicon.ico',
   '/manifest.webmanifest',
-  '/public/assets/css/style.css',
-  '/public/assets/js/loadImages.js',
-  '/public/assets/images/icons/icon-192x192.png',
-  '/public/assets/images/icons/icon-512x512.png',
-  '/public/db.js'
+  '/assets/css/styles.css',
+  '/assets/js/loadImages.js',
+  '/assets/images/icons/icon-192x192.png',
+  '/assets/images/icons/icon-512x512.png',
+  '/db.js'
 ];
 
 //install and open cache files
@@ -63,7 +63,7 @@ self.addEventListener("fetch", function(evt) {
   }
   evt.respondWith(
     caches.match(evt.request).then(function(response) {
-      return response || fetch(e.request);
+      return response || fetch(evt.request);
     })
   );
 });
